@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #1e1e1e; /* Color de fondo oscuro */
+            color: #ddd; /* Color de texto claro */
+
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #1e1e1e;
+            margin: 20px;
+        }
+        .content {
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            word-wrap: break-word;
+            background-color: #121212; /* Color de fondo más oscuro */
+            border-radius: 20px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+        }
+        h1, h2, p, code, pre {
+            color: #ddd;
+        }
+        code {
+            background-color: #444; /* Color de fondo para el código */
+            padding: 2px 6px;
+            border: 1px solid #555;
+            font-size: 90%;
+
+        }
+        pre {
+            background-color: #555;
+            padding: 10px;
+            border: 1px solid #666;
+            white-space: pre-wrap;
+            border-radius: 10px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .content {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+<h1>API Documentation</h1>
+
+<h2>1. POST http://localhost:4040/crm/setManager</p>
+
+<p>Permite mandar en el cuerpo de la solicitud (Request Body) un JSON con los datos de un manager para ser registrado desde el servidor. Ejemplo de JSON:</p>
+<pre>
+{
+    "id": 0,
+    "nombre": "nombre de ejemplo",
+    "direccion": "direccion de ejemplo",
+    "edad": 0,
+    "nEmpleado": 0,
+    "rfc": "rfc de ejemplo"
+}
+</pre>
+
+<p>No contiene parámetros en el URL.</p>
+<p>Su código de respuesta en caso de realizar la operación correctamente es <code>200: OK</code>.</p>
+
+<h2>2. GET http://localhost:4040/crm/getManager/{id}</p>
+
+<p>Permite recibir en el cuerpo de la respuesta (Request Body) un JSON con los datos de un manager en específico. Ejemplo de JSON:</p>
+<pre>
+{
+    "id": 0,
+    "nombre": "nombre de ejemplo",
+    "direccion": "direccion de ejemplo",
+    "edad": 0,
+    "nEmpleado": 0,
+    "rfc": "rfc de ejemplo"
+}
+</pre>
+
+<p>El parámetro {id} en el URL corresponde al ID del manager que se desea recibir en el cuerpo de respuesta. Ejemplo:</p>
+
+<pre>http://localhost:4040/crm/getManager/195</pre>
+
+<p>Respuesta:</p>
+<pre>
+{
+    "id": 195,
+    "nombre": "nombre del manager 195",
+    "direccion": "direccion del manager 195",
+    "edad": 0,
+    "nEmpleado": 0,
+    "rfc": "rfc del manager 195"
+}
+</pre>
+
+<p>Su código de respuesta en caso de realizar la operación correctamente es <code>200: OK</code>.</p>
+
+<h2>3. GET http://localhost:4040/crm/getManagers</p>
+
+<p>Permite recibir en el cuerpo de la respuesta (Request Body) un arreglo de objetos JSON (JSON array) de todos los managers registrados. Ejemplo:</p>
+<pre>
+[
+    {
+        "id": 1,
+        "nombre": "Juan Perez Hernandez",
+        "direccion": "Linares 234 Azucenas Queretaro Queretaro",
+        "edad": 24,
+        "nEmpleado": 100,
+        "rfc": "LAJA989596VA9"
+    },
+    .
+    .
+    .
+    {
+        "id": 2,
+        "nombre": "Roberto Lino Ferrero",
+        "direccion": "Begonias 25 Fuentes Queretaro Queretaro",
+        "edad": 28,
+        "nEmpleado": 250,
+        "rfc": "LIRO958747LO9"
+    }
+]
+</pre>
+
+<p>No contiene parámetros en el URL.</p>
+<p>Su código de respuesta en caso de realizar la operación correctamente es <code>200: OK</code>.</p>
+
+<h2>4. PUT http://localhost:4040/crm/updateManager</p>
+
+<p>Permite mandar en el cuerpo de la solicitud (Request Body) un JSON con los datos de un manager existente para ser actualizados desde el servidor. Ejemplo de JSON:</p>
+<pre>
+{
+    "id": 1,
+    "nombre": "nombre actualizado",
+    "direccion": "direccion actualizada",
+    "edad": 0,
+    "nEmpleado": 0,
+    "rfc": "rfc actualizado"
+}
+</pre>
+
+<p>No contiene parámetros en el URL.</p>
+<p>Su código de respuesta en caso de realizar la operación correctamente es <code>200: OK</code>.</p>
+
+<h2>5. DELETE http://localhost:4040/crm/deleteManager/{id}</p>
+
+<p>Permite mandar mediante un parámetro en el URL el ID de un manager registrado para ser eliminado. Ejemplo:</p>
+<pre>http://localhost:4040/crm/deleteManager/195</pre>
+
+<p>No contiene cuerpo ni en la solicitud ni en la respuesta.</p>
+<p>Su código de respuesta en caso de realizar la operación correctamente es <code>200: OK</code>.</p>
+</div>
+</div>
+</body>
+</html>
